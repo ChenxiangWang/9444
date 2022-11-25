@@ -34,11 +34,11 @@ function train_perceptron(inputs, classes, weights, lr) {
 
 let lr = 1;
 let inputs = [
-  [0, 1],
-  [2, 0],
-  [1, 1],
+  [-1, -1],
+  [2, 1],
+  [-2, 2],
 ];
 let classes = [-1, -1, 1];
-let weights = [-1.5, 0, 2];
+let weights = [0.5, 1, -2];
 
 console.log(train_perceptron(inputs, classes, weights, lr));
