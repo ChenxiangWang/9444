@@ -11,4 +11,4 @@ function getSoftmax(inputs, correct_index) {
   });
 }
 
-console.log(getSoftmax([1.3, 2.4, 3.7], 2));
+console.log(getSoftmax([1, 2, 3], 1));

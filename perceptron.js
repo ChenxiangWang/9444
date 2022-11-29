@@ -1,44 +1,24 @@
-function train_perceptron(inputs, classes, weights, lr) {
-  let done = false;
-  while (!done) {
-    done = true;
-    inputs.forEach((variables, index) => {
-      let res = variables.reduce((prv, cur, index) => {
-        return prv + cur * weights[index + 1];
-      }, 0);
-      res += weights[0];
-      // update
-      if (res > 0 && classes[index] < 0) {
-        weights = weights.map((val, i_w) => {
-          if (i_w === 0) {
-            return val - lr;
-          } else {
-            return val - lr * variables[i_w - 1];
-          }
-        });
-        done = false;
-      } else if (res < 0 && classes[index] > 0) {
-        done = false;
-        weights = weights.map((val, i_w) => {
-          if (i_w === 0) {
-            return val + lr;
-          } else {
-            return val + lr * variables[i_w - 1];
-          }
-        });
-      }
-    });
+function train_perceptron(input, cls, weights, lr) {
+  // loop over all inputs
+  let prediction = input.reduce((prv, cur, index) => {
+    return cur * weights[index + 1] + prv;
+  }, 0);
+  prediction += weights[0];
+  if (prediction * cls > 0) {
+    return weights;
   }
+  let cur_lr = prediction > cls ? -lr : lr;
+  console.log(prediction, cur_lr);
+  for (let i = 0; i < input.length; i++) {
+    weights[i + 1] += cur_lr * input[i];
+  }
+  weights[0] += cur_lr;
   return weights;
 }
 
 let lr = 1;
-let inputs = [
-  [-1, -1],
-  [2, 1],
-  [-2, 2],
-];
-let classes = [-1, -1, 1];
-let weights = [0.5, 1, -2];
+let input = [2, 11];
+let cls = -1;
+let weights = [-0.5, -1, -3];
 
-console.log(train_perceptron(inputs, classes, weights, lr));
+console.log("res: " + train_perceptron(input, cls, weights, lr));

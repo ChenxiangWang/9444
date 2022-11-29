@@ -4,4 +4,4 @@ function getEntropy(inputs) {
     return sum + p * -log2(p);
   }, 0);
 }
-console.log(getEntropy([1 / 2, 1 / 4, 1 / 8, 1 / 16, 1 / 16]));
+console.log(getEntropy([1 / 2, 1 / 4, 1 / 8, 1 / 8]));

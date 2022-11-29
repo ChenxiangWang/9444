@@ -10,7 +10,7 @@ function getKLDivergence(inputs1, inputs2) {
   return res;
 }
 
-const P = [1 / 2, 1 / 4, 1 / 8, 1 / 16, 1 / 16];
-const Q = [1 / 2, 1 / 16, 1 / 16, 1 / 4, 1 / 8];
+const P = [1 / 2, 1 / 4, 1 / 8, 1 / 8];
+const Q = [1 / 4, 1 / 8, 1 / 8, 1 / 2];
 
 console.log(getKLDivergence(P, Q));

@@ -24,4 +24,4 @@ function convolution(j, k, l, m, n, c, s) {
   };
 }
 
-console.log(convolution(42, 54, 3, 6, 6, 16, 4));
+console.log(convolution(84, 84, 4, 8, 8, 16, 4));
